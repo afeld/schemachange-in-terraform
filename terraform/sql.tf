@@ -21,6 +21,8 @@ locals {
 resource "null_resource" "versioned_sql" {
   for_each = local.versioned_map
 
+  # no triggers, since once the resource is created, it shouldn't be executed again
+
   provisioner "local-exec" {
     command = "snow sql -f ${each.value}"
   }
@@ -37,6 +39,7 @@ resource "null_resource" "repeatable_sql" {
     command = "snow sql -f ${each.value}"
   }
 
+  # repeatable scripts run after versioned ones
   depends_on = [null_resource.versioned_sql]
 }
 
@@ -45,6 +48,7 @@ resource "null_resource" "always_sql" {
 
   triggers = {
     sql = file(each.value)
+    # hack to ensure it's always triggered
     # https://ilhicas.com/2019/08/17/Terraform-local-exec-run-always.html
     always_run = timestamp()
   }
@@ -53,5 +57,6 @@ resource "null_resource" "always_sql" {
     command = "snow sql -f ${each.value}"
   }
 
+  # always scripts run after repeatable ones
   depends_on = [null_resource.repeatable_sql]
 }
