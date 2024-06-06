@@ -1,6 +1,8 @@
 # Schemachange in Terraform proof of concept
 
-To run:
+This is a proof of concept implementing [schemachange](https://github.com/Snowflake-Labs/schemachange) in [Terraform](https://www.terraform.io/) as a way to manage resources in [Snowflake](https://www.snowflake.com/). The meat of the implementation is in [`terraform/sql.tf`](terraform/sql.tf).
+
+## Usage
 
 1. Create a [virtual environment](https://docs.python.org/3/library/venv.html).
 
