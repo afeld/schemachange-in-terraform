@@ -1,0 +1,1 @@
+SELECT 'script one';
