@@ -14,9 +14,9 @@ locals {
   always_map   = { for filename in local.always_files : basename(filename) => "${local.sql_root}/${filename}" }
 }
 
+
 # in theory, the snowflake_unsafe_execute resource would have more direct, but it was giving me 400 errors
 # https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/unsafe_execute
-
 
 resource "null_resource" "versioned_sql" {
   for_each = local.versioned_map

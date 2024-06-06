@@ -31,7 +31,7 @@ Not looking to spend a lot of time to match the functionality exactly. Do _not_ 
    cd terraform
    ```
 
-1. Run Terraform. (`-parallelism=1` is set because schemachange only runs a single script at a time.)
+1. Run Terraform. (`-parallelism=1` is set to match schemachange's behavior of only running a single script at a time.)
 
    ```sh
    terraform init
