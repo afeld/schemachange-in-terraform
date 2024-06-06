@@ -18,12 +18,7 @@ Not looking to spend a lot of time to match the functionality exactly. Do _not_ 
    source ./.venv/bin/activate
    ```
 
-1. Install dependencies.
-
-   ```sh
-   pip install -r requirements.txt
-   ```
-
+1. [Install the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/installation/installation#how-to-install-sf-cli-using-pip-pypi)
 1. [Configure the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/connecting/specify-credentials#how-to-add-credentials-using-a-sf-cli-connection-command) Call the connection `default`.
 1. Go into the `terraform/` directory.
 
