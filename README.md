@@ -42,3 +42,9 @@ To run:
    terraform init
    terraform apply
    ```
+
+## Advantages over schemachange
+
+- When files change, it shows a diff in the plan.
+- It can be integrated with other Terraform resources.
+- You could add dependencies between scripts/resources through [`depends_on`](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on).
