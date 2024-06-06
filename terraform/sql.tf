@@ -13,6 +13,6 @@ resource "null_resource" "repeatable_sql" {
   }
 
   provisioner "local-exec" {
-    command = "dotenv run -- snow sql --temporary-connection --authenticator Snowflake -f ${local.sql_root}/${each.key}"
+    command = "snow sql -f ${local.sql_root}/${each.key}"
   }
 }

@@ -20,16 +20,7 @@ To run:
    pip install -r requirements.txt
    ```
 
-1. Create a `terraform/.env` file.
-1. Fill out the following:
-
-   ```shell
-   SNOWFLAKE_ACCOUNT=...
-   SNOWFLAKE_USER=...
-   SNOWFLAKE_PASSWORD=...
-   SNOWFLAKE_ROLE=...
-   ```
-
+1. [Configure the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/connecting/specify-credentials#how-to-add-credentials-using-a-sf-cli-connection-command) Call the connection `default`.
 1. Go into the `terraform/` directory.
 
    ```sh
