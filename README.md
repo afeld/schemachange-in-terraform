@@ -6,29 +6,27 @@ Not looking to spend a lot of time to match the functionality exactly. Do _not_ 
 
 ## Usage
 
-1. Create a [virtual environment](https://docs.python.org/3/library/venv.html).
+1. Set up the [Snowflake CLI](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/index).
 
-   ```sh
-   python -m venv .venv
-   ```
+   1. Create a [virtual environment](https://docs.python.org/3/library/venv.html).
 
-1. Activate the virtual environment.
+      ```sh
+      python -m venv .venv
+      ```
 
-   ```sh
-   source ./.venv/bin/activate
-   ```
+   1. Activate the virtual environment.
 
-1. [Install the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/installation/installation#how-to-install-sf-cli-using-pip-pypi)
-1. [Configure the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/connecting/specify-credentials#how-to-add-credentials-using-a-sf-cli-connection-command) Call the connection `default`.
-1. Go into the `terraform/` directory.
+      ```sh
+      source ./.venv/bin/activate
+      ```
 
-   ```sh
-   cd terraform
-   ```
+   1. [Install the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/installation/installation#how-to-install-sf-cli-using-pip-pypi)
+   1. [Configure the Snowflake CLI.](https://docs.snowflake.com/en/developer-guide/snowflake-cli-v2/connecting/specify-credentials#how-to-add-credentials-using-a-sf-cli-connection-command) Call the connection `default`.
 
 1. Run Terraform. (`-parallelism=1` is set to match schemachange's behavior of only running a single script at a time.)
 
    ```sh
+   cd terraform
    terraform init
    terraform apply -parallelism=1
    ```
