@@ -1,6 +1,8 @@
 # Schemachange in Terraform
 
-This is a **proof of concept** implementing [schemachange](https://github.com/Snowflake-Labs/schemachange) in [Terraform](https://www.terraform.io/). Having managed [Snowflake](https://www.snowflake.com/) using both, I thought it would be an interesting exercise to try and bring the two together. The meat of the implementation is in [`terraform/sql.tf`](terraform/sql.tf).
+This is a **proof of concept** implementing [schemachange](https://github.com/Snowflake-Labs/schemachange) in [Terraform](https://www.terraform.io/). Having managed [Snowflake](https://www.snowflake.com/) using both, I thought it would be an interesting exercise to try and bring the two together.
+
+The meat of the implementation is in [`terraform/sql.tf`](terraform/sql.tf). The [schemachange-esque change scripts](https://github.com/Snowflake-Labs/schemachange?tab=readme-ov-file#change-scripts) can be found under [`sql/`](sql/).
 
 Not looking to spend a lot of time to match the functionality exactly. **Do _not_ use this in production.**
 
