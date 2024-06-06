@@ -1,6 +1,8 @@
 # Schemachange in Terraform proof of concept
 
-This is a proof of concept implementing [schemachange](https://github.com/Snowflake-Labs/schemachange) in [Terraform](https://www.terraform.io/) as a way to manage resources in [Snowflake](https://www.snowflake.com/). The meat of the implementation is in [`terraform/sql.tf`](terraform/sql.tf).
+This is a proof of concept implementing [schemachange](https://github.com/Snowflake-Labs/schemachange) in [Terraform](https://www.terraform.io/). Having managed [Snowflake](https://www.snowflake.com/) using both, I thought it would be an interesting exercise to try and bring the two together. The meat of the implementation is in [`terraform/sql.tf`](terraform/sql.tf).
+
+Not looking to spend a lot of time to match the functionality exactly. Do _not_ use this in production.
 
 ## Usage
 
@@ -29,11 +31,11 @@ This is a proof of concept implementing [schemachange](https://github.com/Snowfl
    cd terraform
    ```
 
-1. Run Terraform.
+1. Run Terraform. (`-parallelism=1` is set because schemachange only runs a single script at a time.)
 
    ```sh
    terraform init
-   terraform apply
+   terraform apply -parallelism=1
    ```
 
 ## Advantages over schemachange
@@ -45,4 +47,7 @@ This is a proof of concept implementing [schemachange](https://github.com/Snowfl
 
 ## Disadvantages
 
+- Known bugs around [versioned scripts](https://github.com/Snowflake-Labs/schemachange?tab=readme-ov-file#versioned-script-naming):
+  - It will pick filenames of a `V` followed by anything, not just digit(s).
+  - They aren't guaranteed to execute in order (https://discuss.hashicorp.com/t/for-each-depends-on-previous-item/14351).
 - At time of writing, [the Snowflake CLI doesn't support MFA caching](https://github.com/snowflakedb/snowflake-cli/issues/1163).

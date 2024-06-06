@@ -7,7 +7,6 @@ locals {
   repeatable_files = fileset(local.sql_root, "**/R__*.sql")
   repeatable_map   = { for filename in local.repeatable_files : basename(filename) => "${local.sql_root}/${filename}" }
 
-  # doesn't strictly limit to digits, but close enough
   versioned_files = fileset(local.sql_root, "**/V*__*.sql")
   versioned_map   = { for filename in local.versioned_files : basename(filename) => "${local.sql_root}/${filename}" }
 
