@@ -48,6 +48,6 @@ Not looking to spend a lot of time to match the functionality exactly. Do _not_ 
 ## Disadvantages
 
 - Known bugs around [versioned scripts](https://github.com/Snowflake-Labs/schemachange?tab=readme-ov-file#versioned-script-naming):
-  - It will pick filenames of a `V` followed by anything, not just digit(s).
-  - They aren't guaranteed to execute in order (https://discuss.hashicorp.com/t/for-each-depends-on-previous-item/14351).
+  - It will treat filenames of a `V` followed by anything as a versioned script, not just those with digit(s).
+  - They aren't guaranteed to execute in order. [There isn't a great way to do so in Terraform.](https://discuss.hashicorp.com/t/for-each-depends-on-previous-item/14351)
 - At time of writing, [the Snowflake CLI doesn't support MFA caching](https://github.com/snowflakedb/snowflake-cli/issues/1163).
