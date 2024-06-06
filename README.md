@@ -37,6 +37,7 @@ To run:
 ## Advantages over schemachange
 
 - When files change, it shows a diff in the plan.
+- You see the result of each query.
 - It can be integrated with other Terraform resources.
 - You could add dependencies between scripts/resources through [`depends_on`](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on).
 

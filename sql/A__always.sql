@@ -1,0 +1,1 @@
+SELECT 'I always run';
